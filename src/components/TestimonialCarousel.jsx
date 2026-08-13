@@ -20,14 +20,14 @@ const slots = [
     nome: "Juliana P.",
     photo: "testimonial2",
     texto:
-      "O O que mais gostei foi entender que não precisava viver de restrição. Aprendi a me alimentar melhor sem deixar de aproveitar minha rotina. Foi uma mudança que consegui manter de verdade. mais gostei foi entender que não precisava viver de restrição. Aprendi a me alimentar melhor sem deixar de aproveitar minha rotina. Foi uma mudança que consegui manter de verdade. ilustrativo — espaço reservado para o relato real deste paciente sobre os resultados obtidos.",
+      "O que mais gostei foi entender que não precisava viver de restrição. Aprendi a me alimentar melhor sem deixar de aproveitar minha rotina. Foi uma mudança que consegui manter de verdade.",
   },
   {
     id: 3,
-    nome: "Bruno A.",
+    nome: "Gabriela A.",
     photo: "testimonial3",
     texto:
-      "Eu Eu treinava bastante, mas sentia que minha alimentação não acompanhava meus objetivos. Depois que comecei o acompanhamento, passei a ter muito mais clareza sobre o que precisava fazer e comecei a perceber evolução nos treinos e no físico. bastante, mas sentia que minha alimentação não acompanhava meus objetivos. Depois que comecei o acompanhamento, passei a ter muito mais clareza sobre o que precisava fazer e comecei a perceber evolução nos treinos e no físico. ilustrativo — espaço reservado para o relato real deste paciente sobre a mudança de rotina alimentar.",
+      "Eu treinava bastante, mas sentia que minha alimentação não acompanhava meus objetivos. Depois que comecei o acompanhamento, passei a ter muito mais clareza sobre o que precisava fazer e comecei a perceber evolução nos treinos e no físico.",
   },
 ];
 
@@ -77,7 +77,7 @@ export default function TestimonialCarousel() {
                 <Photo slot={current.photo} className="h-full w-full object-cover" alt={current.nome} tag={false} />
               </div>
               <span className="text-sm font-semibold text-navy-deep">{current.nome}</span>
-              <span className="text-[10px] uppercase tracking-wide text-navy-deep/35">Foto ilustrativa</span>
+            
             </div>
 
             <div className="flex flex-1 flex-col gap-4">

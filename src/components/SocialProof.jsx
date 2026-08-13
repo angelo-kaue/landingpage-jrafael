@@ -26,7 +26,7 @@ export default function SocialProof() {
           <SectionHeading
             eyebrow="Resultados reais"
             title="Histórias de transformação"
-            description="O acompanhamento já resultou em centenas de mudanças reais — cada uma com o próprio contexto e ritmo."
+            description="O acompanhamento já resultou em centenas de mudanças reais. Cada uma com o próprio contexto e ritmo."
           />
 
           <motion.div
@@ -74,7 +74,7 @@ export default function SocialProof() {
         {/* Galeria — carrossel de cenas do dia a dia */}
         <div className="flex flex-col gap-5">
           <span className="text-xs font-medium uppercase tracking-wider text-navy-deep/40">
-            Galeria (mídia ilustrativa — a substituir por fotos oficiais)
+            Galeria
           </span>
           <Gallery items={galeriaItens} />
         </div>

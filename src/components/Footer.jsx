@@ -22,7 +22,7 @@ export default function Footer() {
       />
       <Container className="relative flex flex-col gap-14">
         <div className="grid gap-12 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col items-start gap-4">
             <Logo variant="white" className="h-8 w-auto" />
             <p className="max-w-xs text-sm leading-relaxed text-white/50">{brand.propostaDeValor}</p>
             <span className="text-xs font-medium uppercase tracking-wider text-white/30">{brand.crn}</span>

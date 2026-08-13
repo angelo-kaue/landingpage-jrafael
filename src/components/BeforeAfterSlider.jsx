@@ -2,7 +2,6 @@ import React, { useRef, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { MoveHorizontal } from "lucide-react";
 import Photo from "./Photo.jsx";
-import PlaceholderTag from "./PlaceholderTag.jsx";
 
 /**
  * Comparativo visual "Antes / Depois" com divisor arrastável.
@@ -43,11 +42,11 @@ export default function BeforeAfterSlider() {
         onTouchStart={onPointerDown}
         onTouchMove={onPointerMove}
         onTouchEnd={stopDrag}
-        className="relative aspect-[4/3] w-full cursor-ew-resize select-none overflow-hidden rounded-3xl shadow-soft md:aspect-[16/10]"
+        className="relative aspect-[3/4] w-full cursor-ew-resize select-none overflow-hidden rounded-3xl shadow-soft sm:aspect-[4/5]"
       >
-        <Photo slot="after" className="absolute inset-0 h-full w-full object-cover" alt="Depois" tag={false} />
+        <Photo slot="after" className="absolute inset-0 h-full w-full object-cover object-top" alt="Depois" tag={false} />
         <div className="absolute inset-0 overflow-hidden" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
-          <Photo slot="before" className="absolute inset-0 h-full w-full object-cover" alt="Antes" tag={false} />
+          <Photo slot="before" className="absolute inset-0 h-full w-full object-cover object-top" alt="Antes" tag={false} />
         </div>
 
         <span className="absolute bottom-4 left-4 z-10 rounded-md bg-navy-deep/70 px-2.5 py-1 text-xs font-semibold tracking-wide text-white">
@@ -67,8 +66,6 @@ export default function BeforeAfterSlider() {
             <MoveHorizontal size={18} aria-hidden="true" />
           </motion.div>
         </div>
-
-        <PlaceholderTag label="Comparativo ilustrativo" className="absolute right-4 top-4 z-10" />
       </div>
       <span className="text-center text-xs text-navy-deep/40 md:text-left">
         Arraste para comparar — layout pronto para receber fotos reais de antes e depois.

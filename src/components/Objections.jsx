@@ -51,7 +51,7 @@ export default function Objections() {
         <SectionHeading
           eyebrow="Antes de decidir"
           title="Dúvidas que você provavelmente tem"
-          description="Respostas diretas — sem enrolação, do mesmo jeito que o método funciona."
+          description="Respostas diretas. Sem enrolação, do mesmo jeito que o método funciona."
         />
 
         <motion.div

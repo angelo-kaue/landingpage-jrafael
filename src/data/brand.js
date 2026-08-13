@@ -30,7 +30,7 @@ export const diferenciais = [
   {
     titulo: "Sem dietas restritivas",
     descricao:
-      "O plano se adapta à sua rotina — não o contrário. Nada de listas proibidas ou regras impossíveis de manter.",
+      "O plano se adapta à sua rotina, não o contrário. Nada de listas proibidas ou regras impossíveis de manter.",
   },
   {
     titulo: "Equilíbrio, não perfeição",
@@ -43,7 +43,7 @@ export const diferenciais = [
   },
   {
     titulo: "Comunicação simples e prática",
-    descricao: "Orientações claras, aplicáveis no dia a dia real — no trabalho, em casa, no treino.",
+    descricao: "Orientações claras, aplicáveis no dia a dia real. No trabalho, em casa, no treino.",
   },
 ];
 
@@ -58,7 +58,7 @@ export const objecoes = [
   {
     pergunta: "Já tentei emagrecer antes e não deu certo. Por que agora seria diferente?",
     resposta:
-      "Porque o problema raramente é falta de esforço — é seguir métodos genéricos ou dietas da moda que não se sustentam na sua rotina. O acompanhamento é construído em torno do seu contexto, com foco em equilíbrio e consistência, não em restrição temporária.",
+      "Porque o problema raramente é falta de esforço, é seguir métodos genéricos ou dietas da moda que não se sustentam na sua rotina. O acompanhamento é construído em torno do seu contexto, com foco em equilíbrio e consistência, não em restrição temporária.",
   },
   {
     pergunta: "Preciso seguir uma dieta super restritiva?",
@@ -75,8 +75,8 @@ export const objecoes = [
 export const autoridade = {
   numeros: [
     { valor: "500+", label: "Pacientes transformados" },
-    { valor: "8.248", label: "Seguidores no Instagram" },
-    { valor: "570", label: "Conteúdos publicados" },
+    { valor: "8.275", label: "Seguidores no Instagram" },
+    { valor: "581", label: "Conteúdos publicados" },
   ],
   temasFrequentes: [
     "Emagrecimento",

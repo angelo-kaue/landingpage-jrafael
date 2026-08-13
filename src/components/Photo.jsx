@@ -32,7 +32,7 @@ export const PHOTOS = {
  * `tag`: mostra (ou não) o selinho "imagem ilustrativa" — desligue quando
  * trocar pela foto real (`tag={false}`).
  */
-export default function Photo({ slot, className = "", alt = "", tag = true, tagLabel, ...rest }) {
+export default function Photo({ slot, className = "", alt = "", tag = false, tagLabel, ...rest }) {
   const src = PHOTOS[slot];
   if (!src) return null;
 

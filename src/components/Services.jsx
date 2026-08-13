@@ -45,11 +45,11 @@ export default function Services() {
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     alt={servico.titulo}
                   />
-                  <div className="absolute -bottom-6 left-6 z-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-navy-gradient shadow-soft">
+                </div>
+                <div className="relative flex flex-col gap-3 p-9 pt-10">
+                  <div className="absolute -top-6 left-6 z-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-navy-gradient shadow-soft">
                     <Icon size={24} className="text-gold" aria-hidden="true" />
                   </div>
-                </div>
-                <div className="flex flex-col gap-3 p-9 pt-10">
                   <h3 className="text-xl font-semibold text-navy-deep">{servico.titulo}</h3>
                   <p className="text-sm leading-relaxed text-navy-deep/60">{servico.descricao}</p>
                   <span className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-navy-mid">

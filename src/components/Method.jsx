@@ -19,7 +19,7 @@ export default function Method() {
             <SectionHeading
               eyebrow="Como funciona"
               title="Um método. Sem enrolação."
-              description="Quatro princípios sustentam cada decisão do acompanhamento — nada de fórmula genérica."
+              description="Quatro princípios sustentam cada decisão do acompanhamento, nada de fórmula genérica."
             />
             <motion.div
               variants={fadeUp}

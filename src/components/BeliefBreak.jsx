@@ -8,7 +8,7 @@ import { fadeUp, stagger, viewportOnce } from "../lib/motion.js";
 const caminhoCaos = [
   "Dieta da moda copiada da internet",
   "Restrição extrema por poucas semanas",
-  "Resultado rápido — e igualmente rápido para voltar",
+  "Resultado rápido e igualmente rápido para voltar",
   "Efeito sanfona se repetindo",
 ];
 

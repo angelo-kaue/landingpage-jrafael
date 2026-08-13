@@ -60,8 +60,7 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p variants={fadeUp} className="max-w-xl text-lg leading-relaxed text-white/70 md:text-xl">
-            Emagrecimento definitivo não é sobre força de vontade. É sobre direção certa —
-            sem dietas da moda, sem enrolação.
+            Emagrecimento definitivo não é sobre força de vontade. É sobre direção certa, sem dietas da moda e sem enrolação.
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-2 flex flex-col items-center gap-4 sm:flex-row">
@@ -83,9 +82,9 @@ export default function Hero() {
             className="absolute -top-2 right-2 z-0 hidden w-[62%] overflow-hidden rounded-[24px] opacity-90 sm:block md:right-6 md:w-[56%]"
           >
             <VideoPlaceholder
-              poster={<Photo slot="heroVideoPoster" className="h-full w-full object-cover" alt="Vídeo demonstrativo — como funciona o método" tag={false} />}
+              poster={<Photo slot="heroVideoPoster" className="h-full w-full object-cover" alt="Vídeo demonstrativo — como funciona o método" />}
               label="Como funciona o método"
-              duration="1:30"
+              href={brand.whatsappUrl}
             />
           </motion.div>
 
