@@ -11,7 +11,7 @@ const WHATSAPP_MESSAGE =
 export const brand = {
   nome: "Jorge Rafael",
   instagram: "@jorgerafael_nutri",
-  instagramUrl: "https://instagram.com/jorgerafael_nutri",
+  instagramUrl: "https://instagram.com/jorgerafaelnutri",
   whatsappDisplay: "+55 88 99723-0275",
   whatsappUrl: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`,
   // CRN identificado na logo oficial enviada pelo cliente — único dado de
