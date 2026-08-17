@@ -31,6 +31,11 @@ export const scaleIn = {
   },
 };
 
-// Padrão de viewport usado em quase todas as seções: anima uma vez, com
-// margem negativa para disparar um pouco antes do elemento ficar 100% visível.
-export const viewportOnce = { once: true, margin: "-80px" };
+// Padrão de viewport usado em quase todas as seções: anima uma vez.
+// Margem final positiva e generosa (em vez de negativa) — o elemento começa
+// a animar assim que encosta na borda de baixo da tela, garantindo que ele
+// sempre "acenda" mesmo em rolagem rápida no celular. Com margem negativa
+// (configuração antiga), uma rolagem rápida podia pular o elemento direto
+// pela zona de disparo sem nunca disparar a animação, deixando o conteúdo
+// invisível (opacity: 0) para sempre — o "espaço em branco" reportado.
+export const viewportOnce = { once: true, margin: "0px 0px 120px 0px", amount: 0 };

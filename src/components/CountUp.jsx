@@ -9,7 +9,7 @@ import { motion, useInView, animate } from "framer-motion";
  */
 export default function CountUp({ value, suffix = "", duration = 1.6, className = "" }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const isInView = useInView(ref, { once: true, margin: "0px 0px 120px 0px" });
   const [display, setDisplay] = useState(0);
 
   useEffect(() => {

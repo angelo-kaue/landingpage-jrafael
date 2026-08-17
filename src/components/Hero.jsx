@@ -60,7 +60,8 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p variants={fadeUp} className="max-w-xl text-lg leading-relaxed text-white/70 md:text-xl">
-            Emagrecimento definitivo não é sobre força de vontade. É sobre direção certa, sem dietas da moda e sem enrolação.
+            Emagrecimento definitivo não é sobre força de vontade. É sobre direção certa —
+            sem dietas da moda, sem enrolação.
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-2 flex flex-col items-center gap-4 sm:flex-row">
@@ -104,7 +105,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "0px 0px 120px 0px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mx-auto w-full max-w-3xl"
         >

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import Photo from "./Photo.jsx";
 
@@ -10,21 +10,21 @@ import Photo from "./Photo.jsx";
 const slots = [
   {
     id: 1,
-    nome: "Felipe S.",
+    nome: "Cliente 1",
     photo: "testimonial1",
     texto:
-      "Eu sempre começava uma dieta e desistia depois de algumas semanas. Com o acompanhamento, finalmente consegui adaptar a alimentação à minha rotina. Hoje me sinto muito mais disposto e confiante com meu corpo. sempre começava uma dieta e desistia depois de algumas semanas. Com o acompanhamento, finalmente consegui adaptar a alimentação à minha rotina. Hoje me sinto muito mais disposto e confiante com meu corpo.",
+      "Eu sempre começava uma dieta e desistia depois de algumas semanas. Com o acompanhamento, finalmente consegui adaptar a alimentação à minha rotina. Hoje me sinto muito mais disposto e confiante com meu corpo.",
   },
   {
     id: 2,
-    nome: "Juliana P.",
+    nome: "Cliente 2",
     photo: "testimonial2",
     texto:
       "O que mais gostei foi entender que não precisava viver de restrição. Aprendi a me alimentar melhor sem deixar de aproveitar minha rotina. Foi uma mudança que consegui manter de verdade.",
   },
   {
     id: 3,
-    nome: "Gabriela A.",
+    nome: "Cliente 3",
     photo: "testimonial3",
     texto:
       "Eu treinava bastante, mas sentia que minha alimentação não acompanhava meus objetivos. Depois que comecei o acompanhamento, passei a ter muito mais clareza sobre o que precisava fazer e comecei a perceber evolução nos treinos e no físico.",
@@ -54,39 +54,51 @@ export default function TestimonialCarousel() {
     return () => clearInterval(t);
   }, [paused, next]);
 
-  const current = slots[index];
-
   return (
     <div
       className="relative"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="overflow-hidden rounded-3xl border border-navy-deep/8 bg-mist">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={current.id}
-            initial={{ opacity: 0, x: 24 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -24 }}
-            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col gap-6 p-8 md:flex-row md:items-center md:gap-10 md:p-12"
-          >
-            <div className="relative flex shrink-0 flex-col items-center gap-2 md:w-40">
-              <div className="relative h-24 w-24 overflow-hidden rounded-full shadow-soft ring-4 ring-white">
-                <Photo slot={current.photo} className="h-full w-full object-cover" alt={current.nome} tag={false} />
+      {/*
+        Técnica de empilhamento via CSS Grid: os 3 depoimentos ficam TODOS no
+        DOM ao mesmo tempo, sobrepostos na mesma célula (col-start-1
+        row-start-1). Isso faz a altura da linha do grid se ajustar
+        automaticamente ao MAIOR depoimento entre os três — o card nunca
+        muda de altura ao trocar de slide, então o conteúdo abaixo dele
+        nunca é empurrado (é isso que causava o "pulo" a cada 5s).
+        Só o depoimento atual fica visível/clicável; os outros ficam
+        presentes (reservando espaço) mas invisíveis e fora da navegação.
+      */}
+      <div className="relative grid overflow-hidden rounded-3xl border border-navy-deep/8 bg-mist">
+        {slots.map((slot, i) => {
+          const isCurrent = i === index;
+          return (
+            <motion.div
+              key={slot.id}
+              animate={{ opacity: isCurrent ? 1 : 0 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              aria-hidden={!isCurrent}
+              className={`col-start-1 row-start-1 flex flex-col gap-6 p-8 md:flex-row md:items-center md:gap-10 md:p-12 ${
+                isCurrent ? "pointer-events-auto" : "pointer-events-none select-none"
+              }`}
+            >
+              <div className="relative flex shrink-0 flex-col items-center gap-2 md:w-40">
+                <div className="relative h-24 w-24 overflow-hidden rounded-full shadow-soft ring-4 ring-white">
+                  <Photo slot={slot.photo} className="h-full w-full object-cover" alt={slot.nome} tag={false} />
+                </div>
+                <span className="text-sm font-semibold text-navy-deep">{slot.nome}</span>
+                <span className="text-[10px] uppercase tracking-wide text-navy-deep/35">Foto ilustrativa</span>
               </div>
-              <span className="text-sm font-semibold text-navy-deep">{current.nome}</span>
-            
-            </div>
 
-            <div className="flex flex-1 flex-col gap-4">
-              <Quote size={26} className="text-gold" aria-hidden="true" />
-              <Stars />
-              <p className="text-base italic leading-relaxed text-navy-deep/70 md:text-lg">"{current.texto}"</p>
-            </div>
-          </motion.div>
-        </AnimatePresence>
+              <div className="flex flex-1 flex-col gap-4">
+                <Quote size={26} className="text-gold" aria-hidden="true" />
+                <Stars />
+                <p className="text-base italic leading-relaxed text-navy-deep/70 md:text-lg">"{slot.texto}"</p>
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
 
       {/* Navegação manual */}

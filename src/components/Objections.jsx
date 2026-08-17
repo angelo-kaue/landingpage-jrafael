@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ChevronDown, RotateCcw, Utensils, ShieldCheck } from "lucide-react";
 import { Container, SectionHeading } from "./ui.jsx";
 import { objecoes } from "../data/brand.js";
@@ -21,23 +21,27 @@ function Item({ item, icon: Icon, isOpen, onToggle }) {
           </span>
           <span className="text-base font-medium text-navy-deep md:text-lg">{item.pergunta}</span>
         </span>
-        <motion.span animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.3 }} className="shrink-0">
+        <motion.span animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.2 }} className="shrink-0">
           <ChevronDown size={20} className="text-navy-mid" aria-hidden="true" />
         </motion.span>
       </button>
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <p className="pb-6 pl-13 text-sm leading-relaxed text-navy-deep/60 md:text-base">{item.resposta}</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+
+      {/*
+        Técnica só de CSS (grid-template-rows 0fr -> 1fr) em vez de animar
+        "height: auto" com Framer Motion. A versão anterior precisava medir
+        a altura real do conteúdo em JS antes de animar, o que causava um
+        atraso perceptível entre o clique e a resposta abrir. Essa técnica
+        não depende de medição nenhuma — abre no mesmo frame do clique.
+      */}
+      <div
+        className={`grid overflow-hidden transition-[grid-template-rows] duration-200 ease-out ${
+          isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+      >
+        <div className="min-h-0 overflow-hidden">
+          <p className="pb-6 pl-13 text-sm leading-relaxed text-navy-deep/60 md:text-base">{item.resposta}</p>
+        </div>
+      </div>
     </div>
   );
 }
@@ -51,7 +55,7 @@ export default function Objections() {
         <SectionHeading
           eyebrow="Antes de decidir"
           title="Dúvidas que você provavelmente tem"
-          description="Respostas diretas. Sem enrolação, do mesmo jeito que o método funciona."
+          description="Respostas diretas — sem enrolação, do mesmo jeito que o método funciona."
         />
 
         <motion.div
